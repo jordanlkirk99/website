@@ -11,9 +11,9 @@
         <!-- Main site wrapper -->
         <main id="site-wrapper">
             <!-- Header -->
-            <div id="header-wrapper">
-                <img src="/images/bts-logo.png">
-            </div>
+            {{--<div id="header-wrapper">--}}
+                {{--<img src="/images/bts-logo.png">--}}
+            {{--</div>--}}
             <!-- Main menu -->
             <div id="menu-wrapper">
                 @include('app.includes.menu')

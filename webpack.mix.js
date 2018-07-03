@@ -69,6 +69,7 @@ mix
         'resources/assets/js/app/ajax_toggle.js',
         'resources/assets/js/app/clipboard.js',
         'resources/assets/js/app/cookies.js',
+        'resources/assets/js/app/navbar.js',
         'vendor/bnjns/web-dev-tools/js/forms.js',
         'vendor/bnjns/web-dev-tools/js/modals.js',
         'vendor/bnjns/web-dev-tools/js/plugins/ApplyDatetimePicker/auto-init.js',
