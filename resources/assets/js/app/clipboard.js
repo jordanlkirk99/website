@@ -1,6 +1,6 @@
 new Clipboard('[data-clipboard-target]');
 $('body').on('click', '[data-clipboard-target]', function () {
-    $.notification({
+    $.notify({
         level: 'info',
         message: 'Copied to clipboard'
     });

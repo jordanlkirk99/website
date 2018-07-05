@@ -33,7 +33,7 @@
     }
     
     div.customise {
-        font-size: 12px;
+        font-size: 13px;
         margin-top: 1em;
         text-align: center;
         
@@ -65,17 +65,19 @@
             
             h2 {
                 color: #000;
-                font-size: 1.083em;
+                font-size: 1em;
                 font-weight: bold;
-                margin: 0;
-            }
-            div.form-group {
-                margin: 0 0 0 1em;
+                margin: 0 0 0.25em 0;
             }
             button#DiaryPreferences-save {
                 display: block;
                 width: 100%;
             }
+        }
+    }
+    div#date-header--mobile {
+        @media(min-width: $breakpoint_md) {
+            display: none !important;
         }
     }
     div.date-header {
@@ -269,18 +271,19 @@
     }
     #modal {
         form.export {
-            &, p.help-block {
+            &, p.form-text {
                 font-size: 13px;
             }
             .export-url {
                 background: #000;
                 color: #FFF;
-                padding: 0.75em;
+                padding: 1.25em 0.75em;
                 overflow-x: auto;
             }
             div.customise-export {
                 display: table;
                 font-weight: 300;
+                margin-top: 10px;
                 
                 & > div {
                     display: table-cell;

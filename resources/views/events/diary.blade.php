@@ -83,7 +83,7 @@
             @endfor
         </div>
     </div>
-    <div class="visible-xs visible-md">
+    <div id="date-header--mobile">
         @include('events.diary.date_header')
     </div>
     @if(Auth::check() && Auth::user()->hasExportToken())

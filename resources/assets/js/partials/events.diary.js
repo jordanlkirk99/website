@@ -121,7 +121,7 @@ $('#DiaryPreferences-save').on('click', function () {
             $('#DiaryPreferences').toggle();
             btn.removeAttr('disabled')
                 .html(text);
-            $.notification({
+            $.notify({
                 level  : 'success',
                 message: 'Preferences saved',
             });

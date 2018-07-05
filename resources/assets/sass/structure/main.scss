@@ -2,6 +2,13 @@
 @import "../mixins";
 
 @import "general";
+body {
+    display: flex;
+    flex-flow: column nowrap;
+}
+#site-wrapper {
+    flex: 1;
+}
 @import "main/messages";
 @import "main/header";
 @import "main/menu";

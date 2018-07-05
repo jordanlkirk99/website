@@ -1,3 +1,7 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
 // BTS Colours
 $btsyellow: #FFCF00;
 $btsgold: #D69E00;
@@ -43,3 +47,7 @@ $width_container_xl: 1170px;
 $breakpoint_md: 768px;
 $breakpoint_lg: 992px;
 $breakpoint_xl: 1200px;
+
+@import "../../../vendor/bnjns/web-dev-tools/scss/vars";
+@import "../../../vendor/bnjns/web-dev-tools/scss/mixins";
+@import "../../../vendor/bnjns/web-dev-tools/scss/functions";

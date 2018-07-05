@@ -6,11 +6,14 @@ form {
         font-weight: normal;
     }
     .input-group {
-        span.input-group-addon {
-            & > span.fa {
+        .input-group-text {
+            span.fa {
                 text-align: center;
                 width: 1em;
             }
+        }
+        .btn {
+            margin-bottom: 0;
         }
         &.textarea {
             & > span.input-group-addon {

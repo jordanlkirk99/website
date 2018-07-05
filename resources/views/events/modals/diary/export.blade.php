@@ -11,14 +11,11 @@
                    name="export_url"
                    value="{{ route('event.export') }}"
                    readonly>
-            <span class="input-group-btn">
-                <button class="btn btn-default"
-                        data-clipboard-target="#export_url"
-                        title="Copy to clipboard"
-                        type="button">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" data-clipboard-target="#export_url" title="Copy to clipboard" type="button">
                     <span class="fa fa-clipboard"></span>
                 </button>
-            </span>
+            </div>
         </div>
         @if(Auth::check() && Auth::user()->hasExportToken())
             <div class="customise-export">
@@ -26,32 +23,39 @@
                     Show:
                 </div>
                 <div class="inputs">
-                    <div class="checkbox">
-                        <label class="checkbox-inline disabled">
-                            <input name="event_types" type="checkbox" value="event" checked disabled> Events
-                        </label>
-                        <label class="checkbox-inline">
-                            <input name="event_types" type="checkbox" value="training"> Training
-                        </label>
-                        <label class="checkbox-inline">
-                            <input name="event_types" type="checkbox" value="social"> Socials
-                        </label>
-                        <label class="checkbox-inline">
-                            <input name="event_types" type="checkbox" value="meeting"> Meetings
-                        </label>
+                    <div class="form-group">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" id="event-type--event" name="event_types" type="checkbox" value="event" checked disabled>
+                            <label class="form-check-label" for="event-type--event">Events</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" id="event-type--training" name="event_types" type="checkbox" value="training">
+                            <label class="form-check-label" for="event-type--training">Training</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" id="event-type--social" name="event_types" type="checkbox" value="social">
+                            <label class="form-check-label" for="event-type--social">Socials</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" id="event-type--meeting" name="event_types" type="checkbox" value="meeting">
+                            <label class="form-check-label" for="event-type--meeting">Meetings</label>
+                        </div>
                     </div>
-                    <div class="radio">
-                        <label class="radio-inline">
-                            <input name="crewing" type="radio" value="*" checked>Show all events
-                        </label>
-                        <label class="radio-inline">
-                            <input name="crewing" type="radio" value="true">Only show events I'm crewing
-                        </label>
+
+                    <div class="form-group">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" name="crewing" id="event-crewing--false" type="radio" value="*" checked>
+                            <label class="form-check-label" for="event-crewing--false">Show all events</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" name="crewing" id="event-crewing--true" type="radio" value="true">
+                            <label class="form-check-label" for="event-crewing--true">Only show events I'm crewing</label>
+                        </div>
                     </div>
                 </div>
             </div>
         @else
-            <p class="help-block">To customise which events are exported, please enable this in {!! link_to_route('member.profile', 'your profile') !!}.</p>
+            <p class="form-text">To customise which events are exported, please enable this in {!! link_to_route('member.profile', 'your profile') !!}.</p>
         @endif
         <h2>Importing to Google Calendar:</h2>
         <ol>
@@ -61,7 +65,7 @@
             <li>Enter the URL above into the pop-up box</li>
             <li>Click <strong>Add Calendar</strong></li>
         </ol>
-        <p class="help-block"><strong>Please note:</strong> The frequency of calendar updates is determined by Google and cannot be
+        <p class="form-text"><strong>Please note:</strong> The frequency of calendar updates is determined by Google and cannot be
             configured.</p>
         {!! Form::close() !!}
     </div>

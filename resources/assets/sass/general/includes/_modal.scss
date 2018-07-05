@@ -28,6 +28,7 @@ div.modal {
             font-size: 22px;
             font-weight: 400;
             margin: 0.2em 0;
+            width: 100%;
         }
         div.modal-header {
             margin: 0;
@@ -73,7 +74,7 @@ div.modal {
         hr {
             background: #000;
         }
-        .help-block {
+        .form-text {
             color: #666;
             font-style: italic;
         }

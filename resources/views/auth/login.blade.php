@@ -11,29 +11,31 @@
 
     {!! Form::open() !!}
 
-    <div class="form-group @InputClass('username')">
+    <div class="form-group">
         <div class="input-group">
-            <span class="input-group-addon"><span class="fa fa-user"></span></span>
-            {!! Form::text('username', null, [
-                'placeholder' => 'Enter your username or email address',
-                'class' => 'form-control'
-            ]) !!}
+            <div class="input-group-prepend">
+                <span class="input-group-text">
+                    <span class="fa fa-user"></span>
+                </span>
+            </div>
+            {!! Form::text('username', null, ['placeholder' => 'Enter your username or email address']) !!}
+            @InputError('username')
         </div>
-        @InputError('username')
     </div>
 
     <div class="form-group @InputClass('password')">
         <div class="input-group">
-            <span class="input-group-addon"><span class="fa fa-key"></span></span>
-            {!! Form::input('password', 'password', null, [
-                'placeholder' => 'Enter your password',
-                'class' => 'form-control'
-            ]) !!}
+            <div class="input-group-prepend">
+                <span class="input-group-text">
+                    <span class="fa fa-key"></span>
+                </span>
+            </div>
+            {!! Form::input('password', 'password', null, ['placeholder' => 'Enter your password']) !!}
+            @InputError('password')
         </div>
-        @InputError('password')
-        <p class="help-block small">
+        <div class="form-text small">
             {!! link_to_route('auth.pwd.email', 'Forgotten your password?') !!}
-        </p>
+        </div>
     </div>
 
     <div class="form-group">
