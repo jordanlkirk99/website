@@ -148,27 +148,8 @@ class MenuServiceProvider extends ServiceProvider
             $resources->add(route('page.show', ['slug' => 'links']), 'Links')
                       ->add(route('page.show', ['slug' => 'faq']), 'FAQ');
 
-            // Add the necessary classes
-            $menu->addClass('nav navbar-nav')
-                 ->getItemsByContentType(Link::class)
-                 ->map(function ($item) {
-                     if ($item->hasChildren()) {
-                         $item->addClass('dropdown');
-                         $item->getChildren()->getAllItems()->map(function ($childItem) use ($item) {
-                             if ($childItem->isActive()) {
-                                 $item->addClass('active');
-                             }
-                         });
-                     }
-                 });
-            $menu->getAllItemLists()
-                 ->map(function ($itemList) {
-                     if ($itemList->hasChildren()) {
-                         $itemList->addClass('dropdown-menu');
-                     }
-                 });
-
             // Render
+            $this->bootstrapify($menu);
             $view->with('mainMenu', $menu->render());
         });
     }
@@ -208,5 +189,45 @@ class MenuServiceProvider extends ServiceProvider
             $menu->addClass('nav nav-tabs');
             $view->with('menu', $menu->render());
         });
+    }
+
+    /**
+     * Add the necessary classes to a menu to make it Bootstrap 4 compliant.
+     *
+     * @param $menu
+     *
+     * @return void
+     */
+    private function bootstrapify($menu)
+    {
+        $menu->addClass('navbar-nav');
+
+        $menu->getAllItemLists()
+             ->map(function ($itemList) {
+                 if ($itemList->hasChildren() && !is_null($itemList->getParent())) {
+                     $itemList->addClass('dropdown-menu');
+                 }
+             });
+
+
+        $menu->getItemsByContentType(Link::class)
+             ->map(function ($item) {
+                 if (is_null($item->getParent()->getParent())) {
+                     $item->addClass('nav-item');
+                     $item->getValue()->addClass('nav-link');
+                 } else {
+                     $item->addClass('dropdown-item');
+                 }
+
+                 if ($item->hasChildren()) {
+                     $item->addClass('dropdown');
+                     $item->getChildren()->getAllItems()->map(function ($childItem) use ($item) {
+                         if ($childItem->isActive()) {
+                             $item->addClass('active');
+                         }
+                     });
+                 }
+             });
+
     }
 }

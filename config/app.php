@@ -167,8 +167,7 @@ return [
          * Package Service Providers...
          */
         Laravel\Tinker\TinkerServiceProvider::class,
-        //Collective\Html\HtmlServiceProvider::class,
-        Menu\MenuServiceProvider::class,
+        \Menu\MenuServiceProvider::class,
         Greggilbert\Recaptcha\RecaptchaServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         SammyK\LaravelFacebookSdk\LaravelFacebookSdkServiceProvider::class,
@@ -243,7 +242,6 @@ return [
 
         // Additional packages
         'Lipsum'       => \Magyarjeti\LaravelLipsum\LipsumFacade::class,
-        'Menu'         => Menu\Menu::class,
         'Recaptcha'    => Greggilbert\Recaptcha\Facades\Recaptcha::class,
         'Image'        => Intervention\Image\Facades\Image::class,
         'Markdown'     => GrahamCampbell\Markdown\Facades\Markdown::class,
