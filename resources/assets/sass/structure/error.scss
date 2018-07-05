@@ -5,7 +5,7 @@
 body {
     color: $colour_text;
     display: flex;
-    flex-direction: column;
+    flex-flow: column nowrap;
     justify-content: center;
 }
 
@@ -14,7 +14,7 @@ div#error-wrapper {
     position: relative;
     
     div#error-num {
-        color: rgba($btsyellow, 0.1);
+        color: #1a1a1a;
         font-size: 23em;
         font-weight: bold;
         text-align: center;
@@ -30,7 +30,7 @@ div#error-wrapper {
         width: 100%;
         z-index: 500;
         
-        div#error-link-home {
+        div#error-links {
             font-size: 0.8em;
             margin-top: 1em;
             text-align: center;

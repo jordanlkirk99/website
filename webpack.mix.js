@@ -22,6 +22,7 @@ mix
     // Combine the vendor files
     .combine([
         'node_modules/jquery/dist/jquery.min.js',
+        'node_modules/popper.js/dist/umd/popper.min.js',
         'node_modules/moment/min/moment-with-locales.min.js',
         'node_modules/bootstrap/dist/js/bootstrap.min.js',
         'node_modules/bootstrap-markdown/js/bootstrap-markdown.js',

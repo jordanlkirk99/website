@@ -8,7 +8,7 @@
             <div id="error-num">@yield('errorCode')</div>
             <div id="error-content">
                 <div>@yield('errorDetails')</div>
-                <div id="error-link-home">
+                <div id="error-links">
                     <a href="{{ route('home') }}">
                         <span class="fa fa-home" title="Try the homepage"></span>
                     </a>
