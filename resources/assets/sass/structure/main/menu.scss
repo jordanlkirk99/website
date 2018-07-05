@@ -103,8 +103,8 @@ div#menu-wrapper {
             }
             & > ul.navbar-nav {
                 @media(max-width: $breakpoint_max) {
-                    .dropdown {
-                        &:hover, &:active {
+                    .dropdown, .dropdown-item, .dropdown-item > a {
+                        &:hover, &:active, &:focus {
                             background: none;
                         }
                     }
