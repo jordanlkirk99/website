@@ -384,16 +384,20 @@ class EventController extends Controller
         if (config('bts.finance_db.key') == $request->get('appKey')) {
             // Check the event exists
             $event = Event::find($eventId);
-            if ($event && $event->hasEM()) {
-                Mail::to($event->em->email, $event->em->name)
-                    ->queue(new FinanceEmail($request, $event));
+            if ($event) {
+                if ($event->hasEM()) {
+                    Mail::to($event->em->email, $event->em->name)
+                        ->queue(new FinanceEmail($request, $event));
 
-                return response()->json(['code' => 200, 'result' => 'success']);
+                    return response()->json(['code' => 200, 'result' => 'success']);
+                } else {
+                    return response()->json(['code' => 500, 'result' => 'No EM assigned'], 500);
+                }
             } else {
-                return response()->json(['code' => 500, 'result' => 'Event not found or no EM assigned'], 500);
+                return response()->json(['code' => 500, 'result' => 'Event not found'], 500);
             }
         } else {
-            return response()->json(['code' => 500, 'result' => 'Incorrect key'], 500);
+            return response()->json(['code' => 500, 'result' => 'Incorrect finance database key'], 500);
         }
     }
 }
