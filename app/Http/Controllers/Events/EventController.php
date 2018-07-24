@@ -390,7 +390,7 @@ class EventController extends Controller
 
                 return response()->json(['code' => 200, 'result' => 'success']);
             } else {
-                return response()->json(['code' => '500', 'result' => 'Event not found or no EM assigned'], 500);
+                return response()->json(['code' => 500, 'result' => 'Event not found or no EM assigned'], 500);
             }
         } else {
             return response()->json(['code' => 500, 'result' => 'Incorrect key'], 500);
